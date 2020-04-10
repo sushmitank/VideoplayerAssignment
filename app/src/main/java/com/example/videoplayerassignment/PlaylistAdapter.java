@@ -12,9 +12,12 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.MyViewHolder> {
 
     private Context mContext;
+    private ArrayList<String>playlist=new ArrayList<>();
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, count;
@@ -30,6 +33,13 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.MyView
 
     public PlaylistAdapter(Context mContext) {
         this.mContext = mContext;
+        playlist.add("Big bug bunny");
+        playlist.add("Big bug bunny");
+        playlist.add("Big bug bunny");
+        playlist.add("Big bug bunny");
+        playlist.add("Big bug bunny");
+
+
     }
 
     @Override
@@ -42,11 +52,11 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistAdapter.MyView
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        holder.title.setText("Big Buck Bunny");
+        holder.title.setText(playlist.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 1;
+        return playlist.size();
     }
 }

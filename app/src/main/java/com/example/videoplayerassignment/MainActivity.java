@@ -180,7 +180,9 @@ public SimpleExoPlayer exoPlayer;
     @Override
     protected void onPause() {
         super.onPause();
-
+        exoPlayer.stop();
+        exoPlayer.setPlayWhenReady(false);
+        exoPlayer.release();
     }
 
     @Override
@@ -189,6 +191,13 @@ public SimpleExoPlayer exoPlayer;
         if (url != null) {
             init(url);
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        exoPlayer.stop();
+        exoPlayer.setPlayWhenReady(false);
     }
 
     private MediaSource buildMediaSource(Uri uri) {
